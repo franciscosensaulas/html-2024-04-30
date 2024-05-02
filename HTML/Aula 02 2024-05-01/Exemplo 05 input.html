@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de campos</title>
+</head>
+
+<body>
+    <!-- Label é um rótulo utilizado para descrever um input(campo) -->
+    <!-- Label for é utilizado para dizer a qual input aquela label está atrelada -->
+    <!-- Input é um campo que permite o usuário preencher os dados necessários -->
+    <!-- Input type text: é utilizado para texto ex.(rua, bairro, cidade) -->
+    <!-- id: é o identificador da tag (ESSE ID É ÚNICO NA PÁGINA)-->
+    <!-- name: é o nome do campo que será utilizado para enviar os dados para a aplicação -->
+    <div>
+        <label for="campo-nome">Nome</label>
+        <input type="text" id="campo-nome">
+    </div>
+    <!-- Input type number: é utilizado para campos de número inteiro (número da casa, cep, cpf)-->
+    <div>
+        <label for="campo-idade">Idade</label>
+        <input type="number" id="campo-idade" min="0" max="140">
+    </div>
+    <!-- Input type email: é utilizado para campos de e-mail -->
+    <div>
+        <label for="campo-email">E-mail</label>
+        <input type="email" id="campo-email">
+    </div>
+    <!-- Input type passowrd: é utilizado para campos de senha -->
+    <div>
+        <label for="campo-senha">Senha</label>
+        <input type="password" id="campo-senha">
+    </div>
+    <!-- Input type date: é utilizado para campos de data ex. (data do pedido, data de saída, data do próximo feriado) -->
+    <div>
+        <label for="campo-data-nascimento">Data Nascimento</label>
+        <input type="date" id="campo-data-nascimento">
+    </div>
+    <!-- Input type time: é utilizado para campos de hora ex. (hora do pedido, hora da saída, hora do pagamento) -->
+    <div>
+        <label for="campo-hora-nascimento">Hora Nascimento</label>
+        <input type="time" id="campo-hora-nascimento">
+    </div>
+    <!-- Input type checkbox: é utilizado para campos de multipla escolha (categoria do jogo, cardápio) -->
+    <div>
+        <b>Escolha a(s) comida(s) preferida(s):</b>
+        <div>
+            <input type="checkbox" id="campo-comida-pastel-calabresa">
+            <label for="campo-comida-pastel-calabresa">Pastel de Calabresa</label>
+        </div>
+        <div>
+            <input type="checkbox" id="campo-comida-pizza-calabresa">
+            <label for="campo-comida-pizza-calabresa">Pizza de Calabresa</label>
+        </div>
+        <div>
+            <input type="checkbox" id="campo-comida-kalzone-calabresa">
+            <label for="campo-comida-kalzone-calabresa">Kalzone de Calabresa</label>
+        </div>
+    </div>
+    <!-- Input type radio: é utilizado para campos de única escolha (signo, sexo) -->
+    <div>
+        <b>Maior de idade:</b>
+        <div>
+            <input type="radio" id="campo-maior-18-sim" name="campo-maior-idade" value="sim">
+            <label for="campo-maior-18-sim">Sim</label>
+            <input type="radio" id="campo-maior-18-nao" name="campo-maior-idade" value="não">
+            <label for="campo-maior-18-nao">Não</label>
+        </div>
+    </div>
+    <!-- Input type radio: é utilizado para campos de envio de arquivo (Image, pdf, docx, xlsx) -->
+    <div>
+        <label for="campo-imagem-perfil">Imagem perfil</label>
+        <input type="file" id="campo-imagem-perfil">
+    </div>
+    <div>
+        <button type="submit">Cadastrar</button>
+    </div>
+</body>
+
+</html>      
+
+<!-- 
+    TEMA LIVRE: 
+    Criar página com os seguintes inputs:
+        - text, email, senha
+    Criar página com os seguintes inputs
+        - text, tel, number, datetime-local
+    Criar página com os seguintes inputs
+        - text, number, month, number, week
+    Criar página com os seguintes inputs
+        - text, date, time, url
+    Criar página com os seguintes inputs
+        - text, radio (4 radios)
+    Criar página com os seguintes itens:
+        - span, lista ordenada
+    Criar página com os seguintes inputs
+        - text, checkbox, color, file
+    Criar página com os seguintes itens:
+        - span, lista não ordenada
+
+-->
