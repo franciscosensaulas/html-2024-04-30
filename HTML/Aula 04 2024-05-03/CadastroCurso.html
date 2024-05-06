@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Cadastro de Curso</title>
+</head>
+
+<body>
+    <a href="index.html">Menu</a>
+    <span>Tela de cadastro de curso</span>
+    <form action="ArmazenarCurso.html" method="post">
+        <fieldset>
+            <legend>Detalhes básicos</legend>
+
+            <div>
+                <label for="campo-nome">Nome</label>
+                <input type="text" id="campo-nome" name="nome" required>
+            </div>
+            <div>
+                <label for="campo-categoria">Categoria</label>
+                <select id="campo-categoria" name="categoria" required>
+                    <optgroup label="Desenvolvimento">
+                        <option value="Back-end">Back-end</option>
+                        <option value="Front-end">Front-end</option>
+                        <option value="Full Stack">Full Stack</option>
+                    </optgroup>
+                    <optgroup label="Adminstrativo">
+                        <option value="Comprador">Comprador</option>
+                        <option value="Vendedor">Vendedor</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div>
+                <label for="campo-duracao">Duração</label>
+                <input type="time" id="campo-duracao" name="duracao" required>
+            </div>
+        </fieldset>
+        <div>
+            <label for="campo-thumb">Selecione </label>
+            <input type="file" id="campo-thumb" name="thumb" required>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+
+</html>
