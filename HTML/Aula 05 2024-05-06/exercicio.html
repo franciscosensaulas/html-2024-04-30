@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebProWayCarros</title>
+    <style>
+        body div{
+            background-color: black;
+            color: hotpink
+        }
+    </style>
+    <script>
+        alert("Olá mundo");
+    </script>
+</head>
+
+<body>
+    <form action="exercicio.html" method="get">
+        <div>
+            <label for="marcas">Marcas</label>
+            <select id="marcas" name="marca">
+                <option value="Ford">Ford</option>
+                <option value="Fiat">Fiat</option>
+            </select>
+        </div>
+        <div>
+            <input type="radio" id="estado-novo" name="estado">
+            <label for="estado-novo">Novo</label>
+            <input type="radio" id="estado-usado" name="estado">
+            <label for="estado-usado">Usado</label>
+        </div>
+        <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <fieldset>
+                <legend>Ano</legend>
+                <label for="ano-inicial">Inicial</label>
+                <input type="number" id="ano-inicial" name="ano-inicial" min="1950" max="2024">
+                <label for="ano-final">Final</label>
+                <input type="number" id="ano-final" name="ano-final" min="1950" max="2024">
+            </fieldset>
+        </div>
+        <div>
+            <input type="checkbox" id="opcional-ar-condicionado" value="ar" name="opcional-ar">
+            <label for="opcional-ar-condicionado">Ar-condicionado</label>
+        </div>
+        <div>
+            <input type="checkbox" id="opcional-airbag" value="airbag" name="opcional-airbag">
+            <label for="opcional-airbag">Airbag</label>
+        </div>
+        <div>
+            <label for="cor">Cor</label>
+            <select id="cor" name="cor">
+                <option value="azul">Azul</option>
+                <option value="Prata">Prata</option>
+                <option value="Branco">Branco</option>
+                <option value="vermelho">Vermelho</option>
+            </select>
+        </div>
+        <div>
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo">
+                <option value="Hatch">Hatch</option>
+                <option value="Sedan">Sedan</option>
+                <option value="Pickup">Pickup</option>
+                <option value="SUV">SUV</option>
+            </select>
+        </div>
+        <button type="submit">Pesquisar</button>
+    </form>
+</body>
+
+<table border="1">
+    <thead>
+
+        <tr>
+            <!--  imagem, marca, modelo, tipo, novo/usado, ano, link para detalhe -->
+            <th>Imagem</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Ano</th>
+            <th>Detalhe</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <img src="https://img.terabyteshop.com.br/produto/g/processador-amd-ryzen-5-4600g-37ghz-42ghz-turbo-6-cores-12-threads-cooler-wraith-stealth-am4-100-100000147box_141664.jpg"
+                    width="100">
+            </td>
+            <td>AMD Ryzen 5 4600g</td>
+            <td>AMD</td>
+            <td>Sedan</td>
+            <td>Sólido</td>
+            <td>2020</td>
+            <td>
+                <a
+                    href="https://www.terabyteshop.com.br/produto/21317/processador-amd-ryzen-5-4600g-37ghz-42ghz-turbo-6-cores-12-threads-cooler-wraith-stealth-am4-100-100000147box">Terabyte</a>
+                <a
+                    href="https://www.kabum.com.br/produto/333145/processador-amd-ryzen-5-4600g-3-7ghz-4-2ghz-max-turbo-cache-11mb-am4-video-integrado-100-100000147box">Kabum</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</html>
