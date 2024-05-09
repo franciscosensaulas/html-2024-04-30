@@ -1,0 +1,74 @@
+/* aplicando o css para classe "borda-topo" e a classe "borda-direita" .... */
+.borda-topo,
+.borda-direita,
+.borda-base,
+.borda-esquerda,
+.borda-completa,
+.borda-dashed,
+.borda-double,
+.borda-dotted {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.borda-topo {
+    border-top-width: 1px;
+    border-top-color: rgb(51, 17, 219);
+    border-top-style: solid;
+}
+
+.borda-direita {
+    border-right-width: 4px;
+    /* largura da borda direita */
+    border-right-color: rgb(17, 219, 27);
+    /* cor da borda direita */
+    border-right-style: solid;
+    /* estilo da borda direita */
+}
+
+.borda-base {
+    border-bottom-width: 3px;
+    /* largura da borda base */
+    border-bottom-color: rgb(219, 17, 158);
+    /* cor da borda base */
+    border-bottom-style: solid;
+    /* estilo da borda base */
+}
+
+.borda-esquerda {
+    border-left-width: 2px;
+    /* largura da borda esquerda */
+    border-left-color: rgb(219, 71, 17);
+    /* cor da borda esquerda */
+    border-left-style: solid;
+    /* estilo da borda esquerda */
+}
+
+.borda-completa {
+    /* border-top: largura, tipo, cor */
+    border-top: 3px solid rgb(84, 74, 134);
+    border-right: 3px solid rgb(84, 74, 134);
+    border-bottom: 3px solid rgb(84, 74, 134);
+    border-left: 3px solid rgb(84, 74, 134);
+}
+
+.borda-dashed {
+    border-top: 3px dashed rgb(3, 1, 12);
+    border-right: 3px dashed rgb(53, 213, 9);
+    border-bottom: 3px dashed rgb(255, 6, 19);
+    border-left: 3px dashed rgb(242, 210, 0);
+}
+
+.borda-dotted {
+    border-top: 3px dotted rgb(3, 1, 12);
+    border-right: 3px dotted rgb(53, 213, 9);
+    border-bottom: 3px dotted rgb(255, 6, 19);
+    border-left: 3px dotted rgb(242, 210, 0);
+}
+
+.borda-double {
+    border-top: 3px double rgb(3, 1, 12);
+    border-right: 3px double rgb(53, 213, 9);
+    border-bottom: 3px double rgb(255, 6, 19);
+    border-left: 3px double rgb(242, 210, 0);
+}

@@ -1,0 +1,17 @@
+body {
+    background-color: darkblue;
+}
+
+h2 {
+    color: lightgreen;
+}
+
+span {
+    color: rgb(148, 41, 240);
+    font-weight: bold;
+}
+
+p {
+    background-color: #DE50F5;
+    font-size: 15px;
+}

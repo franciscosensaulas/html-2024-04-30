@@ -1,0 +1,19 @@
+/*
+    # é o seletor para o id, ou seja, a tag que existir com esse id 'texto-1'
+     será alterado definida cor de fundo como verde amarelo
+*/
+#texto-1{
+    background-color: yellowgreen;
+    text-align: left; /* alinhamento do texto a esquerda */
+}
+#texto-2{
+    background-color: blueviolet;
+    text-align: center; /* alinhamento do texto no meio */
+}
+#texto-3{
+    background-color: turquoise;
+    text-align: right; /* alinhamento do texto no direita */
+}
+#texto-4{
+    text-align: justify;
+}
