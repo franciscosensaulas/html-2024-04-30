@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Cadastro de Curso</title>
+    <link type="text/css" rel="stylesheet" href="cadastro-curso.css">
+    <link type="image/x-icon" rel="icon" href="curso.ico">
+</head>
+
+<body>
+    <a href="index.html">Menu</a>
+    <span>Tela de cadastro de curso</span>
+    <form action="ArmazenarCurso.html" method="post">
+        <div>
+            <label for="campo-nome" class="label-campo">Nome</label>
+            <input type="text" id="campo-nome" name="nome" class="campo" required>
+        </div>
+        <div>
+            <label for="campo-categoria" class="label-campo">Categoria</label>
+            <select id="campo-categoria" class="campo" 
+            name="categoria" required>
+                <optgroup label="Desenvolvimento">
+                    <option value="Back-end">Back-end</option>
+                    <option value="Front-end">Front-end</option>
+                    <option value="Full Stack">Full Stack</option>
+                </optgroup>
+                <optgroup label="Adminstrativo">
+                    <option value="Comprador">Comprador</option>
+                    <option value="Vendedor">Vendedor</option>
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <label for="campo-duracao" class="label-campo">Duração</label>
+            <input type="time" id="campo-duracao" class="campo" name="duracao" required>
+        </div>
+
+        <div>
+            <label for="campo-thumb" class="label-campo label-campo-upload">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i> Selecione o arquivo
+            </label>
+            <input type="file" id="campo-thumb" class="campo-upload" name="thumb" required>
+        </div>
+        <button type="button" class="button-cancelar">
+            <i class="fa-solid fa-gamepad fa-lg"></i> Cancelar
+        </button>
+        <button type="submit" class="button-cadastrar">Cadastrar</button>
+    </form>
+    <script src="https://kit.fontawesome.com/ae7072820f.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+.label-campo {
+    display: block;
+}
+
+.campo {
+    border-color: rgb(53, 58, 70);
+    border-width: 0.8px;
+    border-radius: 4px;
+    width: 300px;
+    padding: 7px 11px;
+    box-sizing: content-box;
+    margin-bottom: 10px;
+}
+
+.campo:hover,
+.campo:focus-within {
+    border-color: rgb(66, 88, 255);
+}
+
+.button-cadastrar {
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    border: none;
+    /*  text-transform: é utilizado para alterar para tudo maiísculo, minúsculo ou capitlizado */
+    text-transform: uppercase;
+}
+
+.button-cadastrar:hover {
+    background-color: #0470e3;
+}
+
+.button-cancelar {
+    padding: 10px 20px;
+    color: rgb(250, 53, 69);
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(250, 53, 69);
+}
+
+.button-cancelar:hover{
+    background-color: rgb(250, 53, 69);
+    color: white;
+}
+
+.campo-upload{
+    display: none;
+}
+
+.label-campo-upload{
+    cursor: pointer;
+    background-color: lightgray;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(170, 175, 179);
+    display: inline-block;
+}
