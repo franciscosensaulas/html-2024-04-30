@@ -1,0 +1,20 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    position: relative;
+    animation-name: animacao; /* Definido o nome da animação que será executada */
+    animation-duration: 4s; /* Definido o tempo que a animção irá executar*/
+    animation-iteration-count: infinite; /* Definido a quantidade de iterações que será realizado, ou seja, a quantidade de vezes que ocorrerá a animação*/
+}
+
+/* keyframes nomeAnimacao*/
+@keyframes animacao{
+    from {
+        left: 0px;
+    }
+
+    to{
+        left: 90%;
+    }
+}

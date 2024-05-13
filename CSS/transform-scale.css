@@ -1,0 +1,11 @@
+.scale-box {
+    width: 100px;
+    height: 100px;
+    background-color: darkblue;
+    transition: transform 0.5s ease;
+}
+
+.scale-box:hover {
+    transform: scale(0.5); /* Reduz para 50% do tamanho */
+    transform: scale(1.5); /* Aumenta mais 50% do tamanho */
+}

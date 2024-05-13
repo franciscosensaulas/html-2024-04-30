@@ -1,0 +1,10 @@
+div.rotate {
+    width: 200px;
+    height: 200px;
+    background-color: violet;
+    transition: transform 1s ease-in;
+}
+
+div.rotate:hover {
+    transform: rotate(-180deg);
+}

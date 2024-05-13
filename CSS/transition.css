@@ -1,0 +1,13 @@
+.transition-box {
+    width: 200px;
+    height: 200px;
+    background-color: chocolate;
+    transition: background-color 2s, transform 1s, border-radius 4s;
+}
+
+.transition-box:hover{
+    background-color: turquoise;
+    /* transform: rotate(90deg); */
+    border-radius: 50%;
+}
+

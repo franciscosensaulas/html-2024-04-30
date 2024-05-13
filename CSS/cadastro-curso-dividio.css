@@ -15,6 +15,7 @@
 .campo:hover,
 .campo:focus-within {
     border-color: rgb(66, 88, 255);
+    outline: 1px solid rgb(66, 88, 255);
 }
 
 .button-cadastrar {
