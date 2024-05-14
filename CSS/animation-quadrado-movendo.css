@@ -1,0 +1,33 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    animation-name: moverQuadrado;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: relative;
+}
+
+@keyframes moverQuadrado {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+    25% {
+        top: 0px;
+        left: 100px;
+    }
+    50% {
+        top: 100px;
+        left: 100px;
+    }
+    75% {
+        top: 100px;
+        left: 0px;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+    }
+}

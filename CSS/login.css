@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+}
+/*
+    justify-content: Diz como será disposto horizontalmente
+        center/flex-start/flex-end/space-around/space-between
+    align-items: Diz como será disposto verticalmente
+        center/flex-start/flex-end/strech/baseline
+    aling-content: diz como as linhas/colunas serão dispostas do flexbox
+        space-between/space-around/stretch/center/flex-start/flex-end
+    gap: é utilizado no lugar do margin com display flex
+*/
+.login-container{
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.login-container h2{
+    margin-top: 0px;
+}
+
+.login-container input{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-container input:hover,
+.login-container input:focus-within{
+    outline: 1px solid #ccc;
+}
+.login-container button{
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

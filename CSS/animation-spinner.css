@@ -1,0 +1,30 @@
+.carregamento {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    animation-name: spinner; /* nome da animação que será executada*/
+    animation-duration: 2s; /*  tempo de duração que será executada */
+    animation-direction: alternate; /* modo que será executado a animação */
+    animation-iteration-count: infinite; /* quantidade de vezes que a animação será executada*/
+    animation: spinner 2s reverse infinite;
+    /*
+    animation-direction: 
+    - normal(segue a animação)
+    - reverse(segue a animação inversa)
+    - alterante (segue a animação, depois aplica o inverso)
+    - alterante-reverse ( segue a animação inversa, depois o modo normal)
+    */
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
