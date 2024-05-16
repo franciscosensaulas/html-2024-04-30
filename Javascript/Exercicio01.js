@@ -7,7 +7,10 @@ function processar(){
     let peso = parseFloat(elementoPeso.value);
     let altura = parseFloat(elementoAltura.value);
     let imc = peso / (altura * altura);
-    alert("Nome: " + nome + "\nIMC: " + imc);
+    // alert("Nome: " + nome + "\nIMC: " + imc);
+
+    const elementoSpan = document.querySelector("#resultado");
+    elementoSpan.innerHTML = "Nome: " + nome + "\nIMC: " + imc;
 }
 // parseInt("2") => converte o texto "2" para número inteiro
 // parseFloat("2.90") => converte o texto "2.90" para número real
