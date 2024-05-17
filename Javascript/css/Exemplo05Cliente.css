@@ -1,0 +1,108 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.cadastro-clientes {
+    width: 50%;
+    padding: 10px;
+}
+
+.lista-clientes {
+    width: 50%;
+    padding: 10px;
+}
+
+.table {
+    width: 100%;
+    border: 1px solid black;
+    border-spacing: 0px;
+}
+
+.table tr th,
+.table tr td {
+    padding: 10px;
+}
+
+.table tbody tr:hover{
+    background-color: #6c6767;
+}
+
+.botao-editar,
+.botao-apagar,
+#botao-salvar {
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+}
+
+.botao-editar {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.botao-apagar {
+    background-color: white;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+.botao-editar:hover,
+.botao-apagar:hover,
+#botao-salvar:hover {
+    cursor: pointer;
+}
+
+.botao-apagar:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.botao-editar:hover {
+    background-color: #0069d9;
+}
+
+.table thead tr {
+    background-color: #de0f35;
+}
+
+.titulo-lista-clientes {
+    text-align: center;
+}
+
+.cadastro-clientes div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.cadastro-clientes div.cliente-tipo {
+    display: flex;
+    flex-direction: row;
+}
+
+div.botao {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#botao-salvar {
+    background-color: #555;
+    border: 1px solid #555;
+}
+
+#botao-salvar:hover{
+    background-color: #666;
+}
+
+.inactive {
+    display: none !important;
+}
