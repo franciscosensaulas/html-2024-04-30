@@ -8,6 +8,8 @@ const campoRazaoSocial = document.getElementById("razaoSocial");
 
 // clientes será utilizado para armazenar a nossa lista de clientes
 const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+let idProximoCliente = 0;
+let idAtual = -1;
 
 // Local Storage: é um local que permite armazenar dados sem tempo de expiração
 // Create: cadastrar um item por chave nome
@@ -24,7 +26,7 @@ const mascaraCpf = { mask: "000.000.000-00" };
 const mascaraCampoCpf = IMask(campoCpf, mascaraCpf);
 
 const campoCnpj = document.getElementById("cnpj");
-const mascaraCnpj = { mask : "00.000.000/0000-00"};
+const mascaraCnpj = { mask: "00.000.000/0000-00" };
 const mascaraCampoCnpj = IMask(campoCnpj, mascaraCnpj);
 
 function apresentarCamposPj() {
@@ -80,12 +82,51 @@ function salvarCliente() {
     // document.querySelector("input[name='tipoPessoa']") irá retornar o primeiro input que contenha o name 'tipoPessoa', neste cenário é o campo de Pessoa Física
     // document.querySelector("input[name='tipoPessoa':checked]") irá retornar o primeiro input que contenha o name 'tipoPessoa' que está selecionado, neste cenário é o campo que o usuário escolheu.
     const tipoPessoa = document.querySelector("input[name='tipoPessoa']:checked").value;
-    console.log(tipoPessoa);
 
-    criarLinha(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa);
+    if (idAtual == -1){
+        const cliente = cadastrarCliente(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa);
+        // Adicionando o cliente na lista de clientes
+        clientes.push(cliente);
+    }else {
+        const cliente = editarCliente(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa, idAtual);
+        
+    }
+
+
+    // JSON.stringnify gera um texto a partir de um objeto ou uma lista de objetos
+    const clientesString = JSON.stringify(clientes);
+    // Armazenar a lista de clientes no localStorage,
+    localStorage.setItem("clientes", clientesString);
+}
+
+function editarCliente(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa, idAtual){
+    for(let i = 0; i < clientes.length; i++){
+        let cliente = clientes[i];
+        if (cliente.id == idAtual){
+            cliente.nome = nome;
+            cliente.cpf = cpf;
+            cliente.dataNascimento = dataNascimento;
+            cliente.apelido = apelido;
+            cliente.cnpj = cnpj;
+            cliente.razaoSocial = razaoSocial;
+            cliente.tipoPessoa = tipoPessoa;
+            limparCampos();
+            carregarClientesNaTabela();
+            idAtual = -1;
+            return cliente;
+        }
+    }
+}
+
+function cadastrarCliente(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa) {
+    // Incrementar o id do cliente, pq como estamos criando um novo cliente, deve ser um novo código
+    idProximoCliente += 1;
+
+    criarLinha(idProximoCliente, nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa);
     limparCampos();
     // Construindo um objeto com os dados do cliente
     const cliente = {
+        id: idProximoCliente,
         nome: nome,
         cpf: cpf,
         dataNascimento: dataNascimento,
@@ -94,22 +135,17 @@ function salvarCliente() {
         razaoSocial: razaoSocial,
         tipoPessoa: tipoPessoa
     };
-    // Adicionando o cliente na lista de clientes
-    clientes.push(cliente);
-    // JSON.stringnify gera um texto a partir de um objeto ou uma lista de objetos
-    const clientesString = JSON.stringify(clientes);
-    // Armazenar a lista de clientes no localStorage,
-    localStorage.setItem("clientes", clientesString);
+    return cliente;
 }
 
-function criarLinha(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa){
+function criarLinha(idCliente, nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoPessoa) {
     // Criar um elemento de tr no javascript
     const novaLinha = document.createElement("tr");
 
     // Criar um elemento de coluna para o código
     const novaCelulaCodigo = document.createElement("td");
     // Definir o conteúdo dessa coluna do código
-    novaCelulaCodigo.innerHTML = "2";
+    novaCelulaCodigo.innerHTML = idCliente;
 
     // Criar um elemento de coluna para o nome
     const novaCelulaNome = document.createElement("td");
@@ -137,9 +173,13 @@ function criarLinha(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoP
 
     novoBotaoEditar.appendChild(novoIconeEditar);
     novoBotaoEditar.innerHTML += " Editar";
+    novoBotaoEditar.addEventListener("click", editar);
+    novoBotaoEditar.setAttribute("data-id", idCliente);
 
     novoBotaoApagar.appendChild(novoIconeApagar);
     novoBotaoApagar.innerHTML += " Apagar";
+    novoBotaoApagar.addEventListener("click", apagar);
+    novoBotaoApagar.setAttribute("data-id", idCliente);
 
     novaCelulaBotoes.appendChild(novoBotaoEditar);
     novaCelulaBotoes.appendChild(novoBotaoApagar);
@@ -158,8 +198,59 @@ function criarLinha(nome, cpf, dataNascimento, apelido, cnpj, razaoSocial, tipoP
     tbodyDaTabela.appendChild(novaLinha);
 }
 
+function editar(event) {
+    let target = event.target;
+    // Obter o data attributo id do botão que foi realizado o click  
+    let id = parseInt(target.getAttribute("data-id"));
+    // Percorrer cada um dos elementos para editar
+    for (let i = 0; i < clientes.length; i++) {
+        let cliente = clientes[i];
+        if (cliente.id == id) {
+            // Definir para variável global qual será o registro que será editado
+            idAtual = cliente.id;
+            campoNome.value = cliente.nome;
+            campoCpf.value = cliente.cpf;
+            campoDataNascimento.value = cliente.dataNascimento;
+            campoApelido.value = cliente.apelido;
+            campoCnpj.value = cliente.cnpj;
+            campoRazaoSocial.value = cliente.razaoSocial;
+            let evento = new Event("change");
 
-function limparCampos(){
+            if (cliente.tipoPessoa == "pf") {
+                campoTipoPF.checked = true;
+                campoTipoPF.dispatchEvent(evento);
+            }
+            else {
+                campoTipoPJ.checked = true;
+                campoTipoPJ.dispatchEvent(evento);
+            }
+            return;
+        }
+    }
+}
+
+function apagar(event) {
+    let target = event.target;
+    // Obter o data attributo id do botão que foi realizado o click  
+    let id = parseInt(target.getAttribute("data-id"));
+    // Percorrer cada um dos elementos para remover o que possuir o id
+    for (let i = 0; i < clientes.length; i++) {
+        let cliente = clientes[i];
+        if (cliente.id == id) {
+            // Remover o elemento que contenha o indice da lista de cliente 
+            clientes.splice(i, 1); // splice(indiceParaRemover, qtdParaRemover);
+            let clientesString = JSON.stringify(clientes);
+            // Atualizar a lista de clientes no localStorage
+            localStorage.setItem("clientes", clientesString);
+            // Atualizar os dados na tabela
+            carregarClientesNaTabela();
+            return;
+        }
+    }
+}
+
+
+function limparCampos() {
     campoNome.value = "";
     campoCpf.value = "";
     campoDataNascimento.value = "";
@@ -170,22 +261,37 @@ function limparCampos(){
     campoNome.focus();
 }
 
-function carregarClientesNaTabela(){
-    for(let i = 0; i < clientes.length; i++){
+function carregarClientesNaTabela() {
+    // Remover todas as linhas da tabela
+    var tbody = document.querySelector("table tbody");
+    tbody.innerHTML = "";
+
+    for (let i = 0; i < clientes.length; i++) {
         let cliente = clientes[i];
         criarLinha(
-            cliente.nome, 
-            cliente.cpf, 
-            cliente.dataNascimento, 
+            cliente.id,
+            cliente.nome,
+            cliente.cpf,
+            cliente.dataNascimento,
             cliente.apelido,
             cliente.cnpj,
             cliente.razaoSocial,
-            cliente.tipoPessoa)
+            cliente.tipoPessoa);
+        // Descobrir o id com maior valor
+        if (cliente.id > idProximoCliente)
+            idProximoCliente = cliente.id;
     }
+}
+
+function alterarTipoPessoa(event) {
+    if (campoTipoPF.checked === true)
+        apresentarCamposPf();
+    else if (campoTipoPJ.checked === true)
+        apresentarCamposPj();
 }
 
 carregarClientesNaTabela();
 
-campoTipoPJ.onclick = apresentarCamposPj;
-campoTipoPF.onclick = apresentarCamposPf;
+campoTipoPJ.onchange = alterarTipoPessoa;
+campoTipoPF.onchange = alterarTipoPessoa;
 botaoSalvar.onclick = salvarCliente;
